@@ -1,0 +1,8 @@
+body{
+    background-image: url(gif/gif_soleil.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#conseil{
+    background-color: rgba( 0, 0, 0, 0.3);
+}
