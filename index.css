@@ -22,3 +22,9 @@ body{
     width: 1024px;
     background-color: rgba(255, 0, 0, 0.3);
 }
+#sec_temp{
+    background-color: rgba(0, 0, 255, 0.3);
+    height: 50px;
+    width: 50px;
+    margin-left: 600px;
+}
