@@ -8,8 +8,7 @@ function getLocation() {
 
 function showPosition(position) {
     getCityName(position.coords.latitude, position.coords.longitude)
-    console.log(position.coords.latitude)
-    console.log(position.coords.longitude)
+
 }
 
 function getCityName(lat, lng) {
@@ -24,10 +23,10 @@ function getCityName(lat, lng) {
 
             let city = data.address.city;
             if (city){
-                console.log(city)
-                document.getElementById('sec_temp').innerHTML = city
+
+                document.getElementById('sec_temp').innerHTML += "<br><div>" + city + "</div>"
             }else{
-                document.getElementById('sec_temp').innerHTML = data.address.village
+                document.getElementById('sec_temp').innerHTML += "<br><div>" + data.address.village + "</div>"
             }
 
 
@@ -56,7 +55,11 @@ function getCityName(lat, lng) {
             let temperature = data.hourly.temperature_2m;
 
             let date2 = Date();
+
             let newDate = date2.split(" ");
+            let localHours = newDate[4]
+            let newLocalHours = localHours.split(":")
+
 
 
 
@@ -64,9 +67,16 @@ function getCityName(lat, lng) {
             for(i = 0; i<hours.length; i++){
                 let time = hours[i].split('T');
                 let checkDay = time[0].split('-');
+                let meteoHours = time[1].split(':')
+                console.log("YO " + localHours);
+                console.log(meteoHours[0])
+
 
                 if (checkDay[2] == newDate[2]){
                     console.log('Nous somme le '+time[0]+', il est ' + time[1] +" et il fait " + temperature[i]+ "°C")
+                    if (newLocalHours[0] == meteoHours[0] ){
+                        document.getElementById('sec_temp').innerHTML = "<br><div>" + temperature[i] + "°C" + "</div>" ;
+                    }
                 }
 
             }
@@ -82,6 +92,8 @@ function getCityName(lat, lng) {
 
 
 }
+
+
 
 
 

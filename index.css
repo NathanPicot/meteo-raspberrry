@@ -26,7 +26,7 @@ body{
     background-color: rgba(0, 0, 0, 0.02);
     margin-bottom: 50px;
 }
-#sec_temp{
+.sec_temp{
     /* background-color: rgba(0, 0, 0, 0.02); */
     display: flex;
     flex-direction: row;
