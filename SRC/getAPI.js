@@ -24,9 +24,9 @@ function getCityName(lat, lng) {
             let city = data.address.city;
             if (city){
 
-                document.getElementById('sec_city').innerHTML += "<div>" + city + "</div>"
+                document.getElementById('sec_city').innerHTML = "<div>" + city + "</div>"
             }else{
-                document.getElementById('sec_city').innerHTML += "<div>" + data.address.village + "</div>"
+                document.getElementById('sec_city').innerHTML = "<div>" + data.address.village + "</div>"
             }
 
 
