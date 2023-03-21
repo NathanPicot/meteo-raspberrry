@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 /* font-family: 'Libre Baskerville', serif; */
 body{
-    background-image: url(gif/gif_soleil.gif);
+    background-image: url(gif/gif_orage.gif);
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
@@ -43,5 +43,11 @@ body{
 #icone_thermo {
     position: relative;
     right: 123px;
+    top: 50px;
+}
+
+#icone_city {
+    position: relative;
+    right: 127px;
     top: 50px;
 }
