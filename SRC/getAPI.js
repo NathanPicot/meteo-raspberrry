@@ -66,8 +66,6 @@ function getCityName(lat, lng) {
 
 
 
-
-
             for(i = 0; i<hours.length; i++){
                 let time = hours[i].split('T');
                 let checkDay = time[0].split('-');
@@ -78,13 +76,16 @@ function getCityName(lat, lng) {
                     console.log('Nous somme le '+time[0]+', il est ' + time[1] +" et il fait " + temperature[i]+ "°C et " + rain[i] + 'mm de pluie')
                     if (newLocalHours[0] == meteoHours[0] ){
                         document.getElementById('sec_temp').innerHTML = "<br><div>" + temperature[i] + "°C" + "</div>" ;
-                        document.getElementById('previsions').innerHTML = "<br><div> Nous somme le "+ time[0] + ", il est " + time[1] +" et il fait " + temperature[i]+ "°C et " + rain[i] + "mm de pluie" +"</div>" ;
+                        //document.getElementById('previsions').innerHTML = "<br><div> Nous somme le "+ time[0] + ", il est " + time[1] +" et il fait " + temperature[i]+ "°C et " + rain[i] + "mm de pluie" +"</div>" ;
+                    }
+                    //séléctionne l'heure actuel et toute les heures suivantes
+                    if (newLocalHours[0] <= meteoHours[0])
+                    {
+                        document.getElementById('tableHours').innerHTML += "<td class='cellHours'>" + meteoHours[0] + "h" + "</td>" ;
+                        document.getElementById('tableRain').innerHTML += "<td class='cellHours'>" + rain[i] + "</td>" ;
+                        console.log(rain[i]);
                     }
                 }
-
-
-
-
             }
 
 //PREVISIONS METEO
