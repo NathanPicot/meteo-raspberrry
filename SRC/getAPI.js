@@ -70,7 +70,6 @@ function getCityName(lat, lng) {
                 let meteoHours = time[1].split(':')
 
 
-
                 if (checkDay[2] == newDate[2]){
                     console.log('Nous somme le '+time[0]+', il est ' + time[1] +" et il fait " + temperature[i]+ "°C")
                     if (newLocalHours[0] == meteoHours[0] ){
