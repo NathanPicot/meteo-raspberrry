@@ -1,17 +1,17 @@
 
-function getLocation() {
+ function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     }
 
 }
 
-function showPosition(position) {
+ async function showPosition(position) {
     getCityName(position.coords.latitude, position.coords.longitude)
 
 }
 
-function getCityName(lat, lng) {
+ function getCityName(lat, lng) {
 
 
    const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&zoom=13&addressdetails=1&format=json`
@@ -88,10 +88,10 @@ function getCityName(lat, lng) {
         });
 
 
-
-
+    getLocation();
 
 }
+
 
 
 
