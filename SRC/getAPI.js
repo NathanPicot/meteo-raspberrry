@@ -78,16 +78,19 @@ function getCityName(lat, lng) {
                     console.log('Nous somme le '+time[0]+', il est ' + time[1] +" et il fait " + temperature[i]+ "°C et " + rain[i] + 'mm de pluie')
                     if (newLocalHours[0] == meteoHours[0] ){
                         document.getElementById('sec_temp').innerHTML = "<br><div>" + temperature[i] + "°C" + "</div>" ;
-                        document.getElementById('previsions').innerHTML = "<br><div>" + rain[i] + "mm de pluie" + "</div>" ;
+                        document.getElementById('previsions').innerHTML = "<br><div> Nous somme le "+ time[0] + ", il est " + time[1] +" et il fait " + temperature[i]+ "°C et " + rain[i] + "mm de pluie" +"</div>" ;
                     }
                 }
+
+
+
 
             }
 
 //PREVISIONS METEO
 
 
-            console.log();
+
 
 
 
