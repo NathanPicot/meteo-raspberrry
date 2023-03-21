@@ -45,3 +45,9 @@ body{
     margin-left: 600px;
     padding: 10px;
 }
+
+#icone_thermo {
+    position: relative;
+    right: 123px;
+    top: 50px;
+}
