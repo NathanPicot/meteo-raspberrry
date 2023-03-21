@@ -44,7 +44,7 @@ body{
     width: 150px;
     margin-left: 600px;
 
-    padding: 10px;
+    padding: 20px;
 }
 
 #icone_thermo {
@@ -69,9 +69,10 @@ body{
     justify-content: center;
     align-content: flex-start;
     position: relative;
-    bottom: 500px;
-    right: 80px;
+    bottom: 600px;
+    right: 60px;
     height: 150px;
     width: 150px;
     margin-left: 600px;
 }
+
