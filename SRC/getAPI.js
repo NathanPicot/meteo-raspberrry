@@ -83,6 +83,8 @@ function getCityName(lat, lng) {
                     {
                         document.getElementById('tableHours').innerHTML += "<td class='cellHours'>" + meteoHours[0] + "h" + "</td>" ;
                         document.getElementById('tableRain').innerHTML += "<td class='cellHours'>" + rain[i] + "</td>" ;
+                        document.getElementById('tableCloud').innerHTML += "<td class='cellHours'>" + cloud[i] + "</td>" ;
+                        document.getElementById('tableSnow').innerHTML += "<td class='cellHours'>" + snow[i] + "</td>" ;
                         console.log(rain[i]);
                     }
                 }
