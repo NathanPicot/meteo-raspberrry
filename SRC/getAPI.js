@@ -42,14 +42,14 @@ function getCityName(lat, lng) {
     const latitude = lat
     const longitude = lng
 // Build the API endpoint URL with the latitude, longitude, and hourly parameter
-    const urlMeteo = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m`;
-
+    const urlMeteo = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,rain,showers,snowfall,snow_depth,cloudcover`;
+    console.log(urlMeteo)
 // Send a GET request to the API endpoint using the Fetch API
     fetch(urlMeteo)
         .then(response => response.json())
         .then(data => {
             // Process the response data as needed
-
+            console.log(data)
             let hours = data.hourly.time;
 
             let temperature = data.hourly.temperature_2m;
@@ -68,8 +68,7 @@ function getCityName(lat, lng) {
                 let time = hours[i].split('T');
                 let checkDay = time[0].split('-');
                 let meteoHours = time[1].split(':')
-                console.log("YO " + localHours);
-                console.log(meteoHours[0])
+
 
 
                 if (checkDay[2] == newDate[2]){
