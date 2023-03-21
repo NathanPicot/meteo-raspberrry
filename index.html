@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/96d5778ce2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
           integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
@@ -18,14 +19,28 @@
 <body onload="getLocation()">
     <main>
         <section id="conseil">
-            <section id="map"></section>
-            <span> conseil </span>
+
+            <p>Conseil :</p>
+            <span>il y a de l'orage, donc il faut prendre un parapluie, le tendre vers le ciel et se mettre en dessous d'un arbre. </span>
+
         </section>
         <section id="test">
-            <span> bulbe </span>
+            <span> Prévision à venir </span>
+            <div class="icone_prevision">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="50" width="50" viewBox="0 96 960 960" ><path d="m475 1056 97-110-80-40 113-130h80l-97 110 80 40-113 130h-80Zm-240 0 97-110-80-40 113-130h80l-97 110 80 40-113 130h-80Zm55-340q-86.864 0-148.432-61.52Q80 592.96 80 506.165 80 427 136.5 365 193 303 277 297q32-56 84.5-88.5T480.423 176Q571 176 632.5 233.5T708 376q79 4 125.5 53.5T880 545.623Q880 616 830.417 666 780.833 716 710 716H290Zm0-60h420q46.2 0 78.1-32.5 31.9-32.5 31.9-78T788.1 468q-31.9-32-78.1-32h-60v-30q0-71-49.5-120.5T480.212 236q-51.481 0-93.847 27.5Q344 291 324 338l-8 18h-28q-62 2-105 45.393t-43 104.464Q140 568 183.929 612 227.857 656 290 656Zm190-210Z"/></svg>                
+                <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="50" width="50" ><path d="M22.5 44v-9.75l-7.45 7.45-2.15-2.1 9.6-9.6v-4.5H18l-9.4 9.4-2.2-2.05 7.35-7.35H4v-3h9.75L6.25 15l2.15-2.15L18 22.5h4.5v-4.55l-9.4-9.4 2.1-2.2 7.3 7.35V4h3v9.7L33 6.2l2.1 2.15-9.6 9.6v4.55h4.55l9.45-9.45 2.15 2.1-7.35 7.35H44v3h-9.7l7.4 7.45-2.05 2.15-9.6-9.6H25.5V30l9.6 9.65-2.05 2.15-7.55-7.55V44Z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="50" width="50" viewBox="0 96 960 960"><path d="M450 286V136h60v150h-60Zm256 106-42-42 106-107 42 43-106 106Zm64 214v-60h150v60H770Zm-320 410V866h60v150h-60ZM253 391 148 286l42-42 106 106-43 41Zm518 517L664 802l41-41 108 104-42 43ZM40 606v-60h150v60H40Zm151 302-43-42 105-105 22 20 22 21-106 106Zm289-92q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm0-60q75 0 127.5-52.5T660 576q0-75-52.5-127.5T480 396q-75 0-127.5 52.5T300 576q0 75 52.5 127.5T480 756Zm0-180Z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="50" width="50" viewBox="0 96 960 960" ><path d="M558 973q-11 5-23.5 1T517 959l-69-138q-5-11-1.5-23.5T461 780q11-5 23.5-1t17.5 15l69 138q5 11 1.5 23.5T558 973Zm240-1q-11 5-23.5 1T757 958l-69-138q-5-11-1.5-23.5T701 779q11-5 23.5-1t17.5 15l69 138q5 11 1.5 23.5T798 972Zm-480 0q-11 5-23.5 1.5T277 959l-69-138q-5-11-1-23.5t15-17.5q11-5 23.5-1.5T263 793l69 139q5 11 1 23t-15 17Zm-28-256q-87 0-148.5-61.5T80 506q0-79 56.5-141T277 297q32-56 84.5-88.5T480 176q91 0 152.5 57.5T708 376q79 4 125.5 53.5T880 546q0 70-49.5 120T710 716H290Zm0-60h420q46 0 78-32.5t32-77.5q0-46-32-78t-78-32h-60v-30q0-71-49.5-120.5T480 236q-51 0-93.5 27.5T324 338l-8 18h-28q-62 2-105 45.5T140 506q0 62 44 106t106 44Zm190-210Z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="50" width="50" viewBox="0 96 960 960"><path d="M251 896q-88 0-149.5-61.5T40 685q0-78 50-137t127-71q20-97 94-158.5T482 257q112 0 189 81.5T748 534v24q72-2 122 46.5T920 727q0 69-50 119t-119 50H251Zm0-60h500q45 0 77-32t32-77q0-45-32-77t-77-32h-63v-84q0-91-61-154t-149-63q-88 0-149.5 63T267 534h-19q-62 0-105 43.5T100 685q0 63 44 107t107 44Zm229-260Z"/></svg>
+            </div>
         </section>
         <section id="sec_temp">
-            <span> ¯\_(ツ)_/¯ </span>
+            <span> 15°C </span>
+            <span> Mardi zebi 18h </span>
+            <span class="material-symbols-outlined">
+                <svg id="icone_thermo" xmlns="http://www.w3.org/2000/svg" fill="white" height="30" viewBox="0 96 960 960" width="30"><path d="M523 476v-60h230v60H523Zm0-120v-60h320v60H523ZM296 935q-75.53 0-128.765-53.235Q114 828.53 114 753q0-48 24-90.5t66-68.5V308q0-38.333 26.765-65.167 26.764-26.833 65-26.833Q334 216 361 242.833q27 26.834 27 65.167v286q42 26 66 68.5t24 90.5q0 75.53-53.235 128.765Q371.53 935 296 935ZM174 753h244q0-40-19-71.5T348 636l-20-9V308q0-13.6-9.2-22.8-9.2-9.2-22.8-9.2-13.6 0-22.8 9.2-9.2 9.2-9.2 22.8v319l-20 9q-32 14-51 46t-19 71Z"/></svg>
+                <svg id="icone_city" xmlns="http://www.w3.org/2000/svg" fill="white" height="30" viewBox="0 96 960 960" width="30"><path d="M480.089 566Q509 566 529.5 545.411q20.5-20.588 20.5-49.5Q550 467 529.411 446.5q-20.588-20.5-49.5-20.5Q451 426 430.5 446.589q-20.5 20.588-20.5 49.5Q410 525 430.589 545.5q20.588 20.5 49.5 20.5ZM480 897q133-121 196.5-219.5T740 504q0-117.79-75.292-192.895Q589.417 236 480 236t-184.708 75.105Q220 386.21 220 504q0 75 65 173.5T480 897Zm0 79Q319 839 239.5 721.5T160 504q0-150 96.5-239T480 176q127 0 223.5 89T800 504q0 100-79.5 217.5T480 976Zm0-472Z"/></svg>
+                </span>
         </section>
         <section id="sec_city">
             <span> ¯\_(ツ)_/¯ </span>
