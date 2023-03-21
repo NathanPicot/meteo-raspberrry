@@ -20,7 +20,7 @@ function getCityName(lat, lng) {
         .then(response => response.json())
         .then(data => {
             // Process the response data as needed
-
+            console.log(data)
             let city = data.address.city;
             if (city){
 
