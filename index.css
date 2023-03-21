@@ -39,3 +39,9 @@ body{
     width: 150px;
     margin-left: 600px;
 }
+
+#icone_thermo {
+    position: relative;
+    right: 123px;
+    top: 50px;
+}
