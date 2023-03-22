@@ -60,16 +60,16 @@ function getCityName(lat, lng) {
 
             let date2 = Date();
 
-            let newDate = date2.split(" ");
-            let localHours = newDate[4]
-            let newLocalHours = localHours.split(":")
+            let newDate = date2.split(" "); // date d'aujoud'hui
+            let localHours = newDate[4]; // Heure d'aujourd'hui fournit par le PC
+            let newLocalHours = localHours.split(":");
 
 
 
             for(i = 0; i<hours.length; i++){
                 let time = hours[i].split('T');
-                let checkDay = time[0].split('-');
-                let meteoHours = time[1].split(':');
+                let checkDay = time[0].split('-'); //Date fourni par l'API
+                let meteoHours = time[1].split(':'); //L'heure fournit par l'API
                 let rain = data.hourly.rain;
 
                 if (checkDay[2] == newDate[2]){
@@ -82,15 +82,25 @@ function getCityName(lat, lng) {
                     if (newLocalHours[0] <= meteoHours[0])
                     {
                         document.getElementById('tableHours').innerHTML += "<td class='cellHours'>" + meteoHours[0] + "h" + "</td>" ;
+                        document.getElementById('tableTemperature').innerHTML += "<td class='cellHours'>" + temperature[i] + "</td>" ;
                         document.getElementById('tableRain').innerHTML += "<td class='cellHours'>" + rain[i] + "</td>" ;
                         document.getElementById('tableCloud').innerHTML += "<td class='cellHours'>" + cloud[i] + "</td>" ;
                         document.getElementById('tableSnow').innerHTML += "<td class='cellHours'>" + snow[i] + "</td>" ;
                         console.log(rain[i]);
                     }
+
+                    //Fonction pour afficher la neige
+
+                    if (snow[i] == 0){
+                        document.getElementById('tableSnow').style.display = 'none';
+                        document.getElementById('tableSnow').style.visibility = 'hidden';
+                    }
                 }
+
+
             }
 
-//PREVISIONS METEO
+
 
 
 
