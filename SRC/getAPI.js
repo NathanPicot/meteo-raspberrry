@@ -212,10 +212,35 @@ function getCityName(lat, lng) {
             document.getElementById('tableSnow').style.display = 'none';
             document.getElementById('tableSnow').style.visibility = 'hidden';
         }
-                }
-            }
+    }
 
-        })
+                if (checkDay[2] == parseInt(newDate[2])+1){
+                    weathercodeList1.push(sky[i])
+                    temperatureList1.push(temperature[i])
+                    if (temperatureList1.length == 24){
+                        console.log("J+1 temperature max "+Math.max(...temperatureList1))
+                        console.log("J+1 temperature min "+Math.min(...temperatureList1))
+                    }
+                    if (weathercodeList1.length == 24){
+
+                        console.log("J+1 Temps : "+getWeatherDescription( findMostFrequentValue(weathercodeList1)));
+                    }
+                }
+                if (checkDay[2] == parseInt(newDate[2])+2){
+                    weathercodeList2.push(sky[i])
+                    temperatureList2.push(temperature[i])
+                    if (temperatureList2.length == 24){
+                        console.log("J+2 temperature max"+Math.max(...temperatureList2))
+                        console.log("J+2 temperature min"+Math.min(...temperatureList2))
+                    }
+                    if (weathercodeList2.length == 24){
+
+                        console.log("J+2 Temps : "+getWeatherDescription( findMostFrequentValue(weathercodeList2)));
+                    }
+                }
+}
+
+    })
         .catch(error => {
             console.error(error);
         });
