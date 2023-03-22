@@ -349,12 +349,13 @@ function getCityName(lat, lng) {
         }
     }
 
+//Afficher données du lendemain
                 if (checkDay[2] == parseInt(newDate[2])+1){
                     weathercodeList1.push(sky[i])
                     temperatureList1.push(temperature[i])
                     if (temperatureList1.length == 24){
                         console.log("J+1 temperature max "+Math.max(...temperatureList1))
-                        document.getElementById('previsionsDay').innerHTML += "<br><div> "+ Math.max(...temperatureList1) +"</div>"
+                        document.getElementById('previsionsDemain').innerHTML += "<div>" +"DEMAIN"+ "</div> " +"<div> " + "Temp max: "+ Math.max(...temperatureList1) +"°C" +"<br>" +  "Temp min: "+ Math.min(...temperatureList1)  +"°C" + "</div>"
 
                         console.log("J+1 temperature min "+Math.min(...temperatureList1))
                     }
@@ -363,11 +364,15 @@ function getCityName(lat, lng) {
                         console.log("J+1 Temps : "+getWeatherDescription( findMostFrequentValue(weathercodeList1)));
                     }
                 }
+
+//Afficher données du SURlendemain
                 if (checkDay[2] == parseInt(newDate[2])+2){
                     weathercodeList2.push(sky[i])
                     temperatureList2.push(temperature[i])
                     if (temperatureList2.length == 24){
                         console.log("J+2 temperature max"+Math.max(...temperatureList2))
+                        document.getElementById('previsionsApresDemain').innerHTML += "<div>" +"APRES-DEMAIN"+ "</div> " +"<div> " + "Temp max: "+ Math.max(...temperatureList2) +"°C" +"<br>" +  "Temp min: "+ Math.min(...temperatureList2)  +"°C" + "</div>"
+
                         console.log("J+2 temperature min"+Math.min(...temperatureList2))
                     }
                     if (weathercodeList2.length == 24){
