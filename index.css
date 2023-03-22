@@ -15,7 +15,7 @@ body{
 #conseil{
     display: flex;
     flex-direction: column;
-    height: 425px;
+    height: 300px;
     width: 200px;
     background-color: rgba( 0, 0, 0, 0.05);
     padding: 10px;
@@ -38,12 +38,12 @@ body{
     justify-content: center;
     align-content: flex-start;
     position: relative;
-    bottom: 500px;
+    bottom: 200px;
     right: 80px;
     height: 150px;
     width: 150px;
     margin-left: 600px;
-
+    z-index: 4;
     padding: 20px;
 }
 
@@ -67,13 +67,10 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-content: flex-start;
-    position: relative;
-    bottom: 600px;
-    right: 60px;
-    height: 150px;
-    width: 150px;
     margin-left: 600px;
+    position: absolute;
+    top: 50px;
+    left: -80px;
 }
 
 #previsionsToday{
@@ -81,13 +78,13 @@ body{
     flex-direction: row;
     justify-content: center;
     align-content: flex-start;
-    position: relative;
-    bottom: 500px;
-    right: 80px;
-    height: 150px;
+    position: absolute;
+    top: 250px;
+    left: -50px;
     width: 700px;
-    margin-left: 100px;
-    backdrop-filter: blur(10px);
+    margin-left: 40px;
+    margin-top: 100px;
+
 }
 
 .cellHours{
@@ -96,16 +93,33 @@ padding: 10px;
 
 }
 
-#previsionsDay{
+#previsionsDemain{
     /* background-color: rgba(0, 0, 0, 0.02); */
     flex-direction: row;
     justify-content: center;
     align-content: flex-start;
-    position: relative;
-    bottom: 500px;
-    right: 80px;
+    position: absolute;
+    margin-top: 20px;
+    top: 365px;
+    left: 550px;
+    padding: 5px;
+    border-bottom: white solid;
+
+margin-left: 100px;
+
+}
+
+#previsionsApresDemain {
+    /* background-color: rgba(0, 0, 0, 0.02); */
+    flex-direction: row;
+    justify-content: center;
+    align-content: flex-start;
+    position: absolute;
+    margin-top: 20px;
+    top: 440px;
+    left: 550px;
     height: 150px;
-    width: 700px;
+    padding-left: 5px;
+
     margin-left: 100px;
-    backdrop-filter: blur(10px);
 }

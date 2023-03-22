@@ -1,3 +1,4 @@
+
 // fonction pour récuperer la latitude et longitude de l'utilisateur
 
 function findMostFrequentValue(arr) {
@@ -17,6 +18,7 @@ function findMostFrequentValue(arr) {
 
     return mostFrequentValue;
 }
+
 
 
 function getWeatherDescription(code) {
@@ -122,12 +124,10 @@ function getLocation() {
         navigator.geolocation.getCurrentPosition(showPosition);
     }
 }
-
 async function showPosition(position) {
     // Get the city name from the coordinates
     getCityName(position.coords.latitude, position.coords.longitude)
 }
-
 function getCityName(lat, lng) {
 
     // Create a URL to get the city name from the coordinates
@@ -143,14 +143,14 @@ function getCityName(lat, lng) {
 
             // Check if the city is available
 
-            if (city) {
+            if (city){
                 document.getElementById('sec_city').innerHTML = "<div>" + city + "</div>"
-            } else if (data.address.village) {
+            } else if (data.address.village){
                 // If not, check if the village is available
                 document.getElementById('sec_city').innerHTML = "<div>" + data.address.village + "</div>"
-            } else {
+            } else{
                 // If not, check if the town is available
-                document.getElementById('sec_city').innerHTML = "<div>" + data.address.town + "</div>"
+                document.getElementById('sec_city').innerHTML="<div>" + data.address.town + "</div>"
             }
         })
         .catch(error => {
@@ -166,11 +166,18 @@ function getCityName(lat, lng) {
     // Fetch the data from the URL
 
 
-    document.getElementById('tableHours').innerHTML = "<td class=\"cellHours\">Heures</td>";
-    document.getElementById('tableTemperature').innerHTML = "<td class=\"cellHours\">Température (°C)</td>";
-    document.getElementById('tableRain').innerHTML = "<td class=\"cellHours\">Pluie (mm)</td>";
-    document.getElementById('tableCloud').innerHTML = "<td class=\"cellHours\">Nuages (%)</td>";
-    document.getElementById('tableSnow').innerHTML = "<td class=\"cellHours\">Neige (cm)</td>";
+
+    document.getElementById('tableHours').innerHTML = "<td class=\"cellHours\">Heures</td>" ;
+    document.getElementById('tableTemperature').innerHTML = "<td class=\"cellHours\">Température (°C)</td>" ;
+    document.getElementById('tableRain').innerHTML = "<td class=\"cellHours\">Pluie (mm)</td>" ;
+    document.getElementById('tableCloud').innerHTML = "<td class=\"cellHours\">Nuages (%)</td>" ;
+    document.getElementById('tableSnow').innerHTML = "<td class=\"cellHours\">Neige (cm)</td>" ;
+    document.getElementById('previsionsDemain').innerHTML = "";
+    document.getElementById('previsionsApresDemain').innerHTML = "";
+
+
+
+
 
 
     fetch(urlMeteo)
@@ -193,7 +200,7 @@ function getCityName(lat, lng) {
             let weathercodeList1 = []
             let weathercodeList2 = []
 
-            for (i = 0; i < hours.length; i++) {
+            for(i = 0; i<hours.length; i++){
                 let time = hours[i].split('T');
                 let checkDay = time[0].split('-');
                 let meteoHours = time[1].split(':')
@@ -204,11 +211,11 @@ function getCityName(lat, lng) {
 
                 let skyStatus = ""
                 // Check if the day is the same
-                if (checkDay[2] == newDate[2]) {
-                    console.log('Nous somme le ' + time[0] + ', il est ' + time[1] + " et il fait " + temperature[i] + "°C")
+                if (checkDay[2] == newDate[2]){
+                    console.log('Nous somme le '+time[0]+', il est ' + time[1] +" et il fait " + temperature[i]+ "°C")
                     // Check if the hour is the same
-                    if (newLocalHours[0] == meteoHours[0]) {
-                        document.getElementById('sec_temp').innerHTML = "<br><div>" + temperature[i] + "°C" + "</div>";
+                    if (newLocalHours[0] == meteoHours[0] ){
+                        document.getElementById('sec_temp').innerHTML = "<br><div>" + temperature[i] + "°C" + "</div>" ;
                         // Switch statement to get the weather status
                         switch (sky[i]) {
                             case 0:
@@ -324,54 +331,61 @@ function getCityName(lat, lng) {
                                 document.body.style.backgroundImage = 'url("gif/gif_orage.gif")'
                                 break;
                         }
-                        document.getElementById('sec_temp').innerHTML += "<br><div> " + skyStatus + "</div>"
+                        document.getElementById('sec_temp').innerHTML += "<br><div> "+ skyStatus +"</div>"
                     }
-
-                    if (newLocalHours[0] <= meteoHours[0]) {
-                        document.getElementById('tableHours').innerHTML += "<td class='cellHours'>" + meteoHours[0] + "h" + "</td>";
-                        document.getElementById('tableTemperature').innerHTML += "<td class='cellHours'>" + temperature[i] + "</td>";
-                        document.getElementById('tableRain').innerHTML += "<td class='cellHours'>" + rain[i] + "</td>";
-                        document.getElementById('tableCloud').innerHTML += "<td class='cellHours'>" + cloud[i] + "</td>";
-                        document.getElementById('tableSnow').innerHTML += "<td class='cellHours'>" + snow[i] + "</td>";
-                    }
+                    
+                    if (newLocalHours[0] <= meteoHours[0])
+            {
+                document.getElementById('tableHours').innerHTML += "<td class='cellHours'>" + meteoHours[0] + "h" +"</td>" ;
+                document.getElementById('tableTemperature').innerHTML += "<td class='cellHours'>" + temperature[i] + "</td>" ;
+                document.getElementById('tableRain').innerHTML += "<td class='cellHours'>" + rain[i] + "</td>" ;
+                document.getElementById('tableCloud').innerHTML += "<td class='cellHours'>" + cloud[i] + "</td>" ;
+                document.getElementById('tableSnow').innerHTML += "<td class='cellHours'>" + snow[i] + "</td>" ;
+            }
 
 //Fonction afficher/masquer pour afficher la neige
 
-                    if (snow[i] == 0) {
-                        document.getElementById('tableSnow').style.display = 'none';
-                        document.getElementById('tableSnow').style.visibility = 'hidden';
-                    }
-                }
+        if (snow[i] == 0)
+        {
+            document.getElementById('tableSnow').style.display = 'none';
+            document.getElementById('tableSnow').style.visibility = 'hidden';
+        }
+    }
 
-                if (checkDay[2] == parseInt(newDate[2]) + 1) {
+//Afficher données du lendemain
+                if (checkDay[2] == parseInt(newDate[2])+1){
                     weathercodeList1.push(sky[i])
                     temperatureList1.push(temperature[i])
-                    if (temperatureList1.length == 24) {
-                        console.log("J+1 temperature max " + Math.max(...temperatureList1))
-                        document.getElementById('previsionsDay').innerHTML += "<br><div> " + Math.max(...temperatureList1) + "</div>"
+                    if (temperatureList1.length == 24){
+                        console.log("J+1 temperature max "+Math.max(...temperatureList1))
+                        document.getElementById('previsionsDemain').innerHTML += "<div>" +"DEMAIN"+ "</div> " +"<div> " + "Temp max: "+ Math.max(...temperatureList1) +"°C" +"<br>" +  "Temp min: "+ Math.min(...temperatureList1)  +"°C" + "</div>"
 
-                        console.log("J+1 temperature min " + Math.min(...temperatureList1))
+                        console.log("J+1 temperature min "+Math.min(...temperatureList1))
                     }
-                    if (weathercodeList1.length == 24) {
+                    if (weathercodeList1.length == 24){
 
-                        console.log("J+1 Temps : " + getWeatherDescription(findMostFrequentValue(weathercodeList1)));
+                        console.log("J+1 Temps : "+getWeatherDescription( findMostFrequentValue(weathercodeList1)));
                     }
                 }
-                if (checkDay[2] == parseInt(newDate[2]) + 2) {
+
+//Afficher données du SURlendemain
+                if (checkDay[2] == parseInt(newDate[2])+2){
                     weathercodeList2.push(sky[i])
                     temperatureList2.push(temperature[i])
-                    if (temperatureList2.length == 24) {
-                        console.log("J+2 temperature max" + Math.max(...temperatureList2))
-                        console.log("J+2 temperature min" + Math.min(...temperatureList2))
-                    }
-                    if (weathercodeList2.length == 24) {
+                    if (temperatureList2.length == 24){
+                        console.log("J+2 temperature max"+Math.max(...temperatureList2))
+                        document.getElementById('previsionsApresDemain').innerHTML += "<div>" +"APRES-DEMAIN"+ "</div> " +"<div> " + "Temp max: "+ Math.max(...temperatureList2) +"°C" +"<br>" +  "Temp min: "+ Math.min(...temperatureList2)  +"°C" + "</div>"
 
-                        console.log("J+2 Temps : " + getWeatherDescription(findMostFrequentValue(weathercodeList2)));
+                        console.log("J+2 temperature min"+Math.min(...temperatureList2))
+                    }
+                    if (weathercodeList2.length == 24){
+
+                        console.log("J+2 Temps : "+getWeatherDescription( findMostFrequentValue(weathercodeList2)));
                     }
                 }
-            }
+}
 
-        })
+    })
         .catch(error => {
             console.error(error);
         });
