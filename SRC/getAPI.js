@@ -66,6 +66,11 @@ function getCityName(lat, lng) {
                 let time = hours[i].split('T');
                 let checkDay = time[0].split('-');
                 let meteoHours = time[1].split(':')
+
+                let rain = data.hourly.rain;
+                let cloud = data.hourly.cloudcover;
+                let snow = data.hourly.snowfall;
+
                 let skyStatus = ""
                 // Check if the day is the same
                 if (checkDay[2] == newDate[2]){
