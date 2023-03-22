@@ -172,6 +172,9 @@ function getCityName(lat, lng) {
     document.getElementById('tableRain').innerHTML = "<td class=\"cellHours\">Pluie (mm)</td>" ;
     document.getElementById('tableCloud').innerHTML = "<td class=\"cellHours\">Nuages (%)</td>" ;
     document.getElementById('tableSnow').innerHTML = "<td class=\"cellHours\">Neige (cm)</td>" ;
+    document.getElementById('previsionsDemain').innerHTML = "";
+    document.getElementById('previsionsApresDemain').innerHTML = "";
+
 
 
 

@@ -38,12 +38,12 @@ body{
     justify-content: center;
     align-content: flex-start;
     position: relative;
-    bottom: 500px;
+    bottom: 200px;
     right: 80px;
     height: 150px;
     width: 150px;
     margin-left: 600px;
-
+    z-index: 4;
     padding: 20px;
 }
 
@@ -68,6 +68,9 @@ body{
     flex-direction: row;
     justify-content: center;
     margin-left: 600px;
+    position: absolute;
+    top: 50px;
+    left: -80px;
 }
 
 #previsionsToday{
