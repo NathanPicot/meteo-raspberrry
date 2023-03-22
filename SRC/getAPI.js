@@ -70,6 +70,7 @@ function getCityName(lat, lng) {
 
             //boucle pour traiter chaque heure
             for(i = 0; i<hours.length; i++){
+
                 //attribution des valeurs
                 let time = hours[i].split('T');
                 let checkDay = time[0].split('-'); //Date fourni par l'API
@@ -101,7 +102,7 @@ function getCityName(lat, lng) {
                 document.getElementById('tableSnow').innerHTML += "<td class='cellHours'>" + snow[i] + "</td>" ;
             }
 
-//Fonction pour afficher la neige
+//Fonction afficher/masquer pour afficher la neige
 
         if (snow[i] == 0)
         {
@@ -110,7 +111,6 @@ function getCityName(lat, lng) {
         }
     }
 }
-
 
         })
         .catch(error => {

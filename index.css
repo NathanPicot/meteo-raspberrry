@@ -54,7 +54,7 @@ body{
     margin-left: 600px;
 }
 
-#previsions{
+#previsionsToday{
     /* background-color: rgba(0, 0, 0, 0.02); */
     flex-direction: row;
     justify-content: center;
