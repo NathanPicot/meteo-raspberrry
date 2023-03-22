@@ -1,3 +1,6 @@
+
+// fonction pour récuperer la latitude et longitude de l'utilisateur
+
 function getLocation() {
     // Get the current location of the user
     if (navigator.geolocation) {
@@ -9,16 +12,20 @@ async function showPosition(position) {
     getCityName(position.coords.latitude, position.coords.longitude)
 }
 function getCityName(lat, lng) {
+
     // Create a URL to get the city name from the coordinates
     const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&zoom=13&addressdetails=1&format=json`
     console.log(url)
     // Fetch the data from the URL
+
     fetch(url)
         .then(response => response.json())
         .then(data => {
             console.log(data)
             let city = data.address.city;
+
             // Check if the city is available
+
             if (city){
                 document.getElementById('sec_city').innerHTML = "<div>" + city + "</div>"
             } else if (data.address.village){
@@ -30,6 +37,7 @@ function getCityName(lat, lng) {
             }
         })
         .catch(error => {
+
             console.error(error);
         });
     // Get the latitude and longitude
@@ -39,13 +47,16 @@ function getCityName(lat, lng) {
     const urlMeteo = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,rain,showers,snowfall,snow_depth,cloudcover,weathercode`;
     console.log(urlMeteo)
     // Fetch the data from the URL
+
     fetch(urlMeteo)
         .then(response => response.json())
         .then(data => {
             console.log(data)
+            //affectation des différentes valeurs
             let hours = data.hourly.time;
             let temperature = data.hourly.temperature_2m;
             let date2 = Date();
+
             let newDate = date2.split(" ");
             let localHours = newDate[4];
             let newLocalHours = localHours.split(":");
@@ -179,12 +190,32 @@ function getCityName(lat, lng) {
                         }
                         document.getElementById('sec_temp').innerHTML += "<br><div> "+ skyStatus +"</div>"
                     }
+                    
+                    if (newLocalHours[0] <= meteoHours[0])
+            {
+                document.getElementById('tableHours').innerHTML += "<td class='cellHours'>" + meteoHours[0] + "h" +"</td>" ;
+                document.getElementById('tableTemperature').innerHTML += "<td class='cellHours'>" + temperature[i] + "</td>" ;
+                document.getElementById('tableRain').innerHTML += "<td class='cellHours'>" + rain[i] + "</td>" ;
+                document.getElementById('tableCloud').innerHTML += "<td class='cellHours'>" + cloud[i] + "</td>" ;
+                document.getElementById('tableSnow').innerHTML += "<td class='cellHours'>" + snow[i] + "</td>" ;
+            }
+
+//Fonction afficher/masquer pour afficher la neige
+
+        if (snow[i] == 0)
+        {
+            document.getElementById('tableSnow').style.display = 'none';
+            document.getElementById('tableSnow').style.visibility = 'hidden';
+        }
                 }
             }
+
         })
         .catch(error => {
             console.error(error);
         });
+
     // Call the getLocation function
     getLocation();
 }
+
