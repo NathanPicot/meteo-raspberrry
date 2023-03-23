@@ -19,7 +19,7 @@ url = 'http://localhost:8000'
 
 pyautogui.sleep(5)
 
-subprocess.Popen(['chromium-browser','--no-sandbox', 'http://localhost:8000/'])
+subprocess.Popen(['firefox-esr','--no-sandbox', 'http://localhost:8000/'])
 
 pyautogui.hotkey('cmd', 'O')
 pyautogui.hotkey('ctrl', 'cmd', 'f')
