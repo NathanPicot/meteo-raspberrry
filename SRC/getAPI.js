@@ -331,7 +331,7 @@ function getCityName(lat, lng) {
                                 document.body.style.backgroundImage = 'url("gif/gif_orage.gif")'
                                 break;
                         }
-                        document.getElementById('sec_temp').innerHTML += "<br><div> "+ skyStatus +"</div>"
+                        document.getElementById('sec_status').innerHTML = "<br><div> "+ skyStatus +"</div>"
                     }
                     
                     if (newLocalHours[0] <= meteoHours[0])
